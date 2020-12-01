@@ -65,28 +65,46 @@ const Signup = () => {
         e.preventDefault()
         
         setLoading(true)
+        if (form.image != '') {
 
-        await Auth.createUserWithEmailAndPassword(form.email, form.password).then(data => {
-                const uploader = Storage.ref().child("Users/images/ " + data.user.uid)
-                uploader.put(form.image).then(async () => {
-                const imageUrl = await uploader.getDownloadURL()
-                return imageUrl
-            }).then((imageUrl) => {
+        Auth.createUserWithEmailAndPassword(form.email, form.password).then(data => {
+                        
+                        const uploader = Storage.ref().child("Users/images/ " + data.user.uid)
+                        uploader.put(form.image).then(async () => {
+                        const imageUrl = await uploader.getDownloadURL()
+                        return imageUrl
+                    }).then((imageUrl) => {
+                        data.user.updateProfile({
+                            displayName: form.username,
+                            photoURL: imageUrl
+                        })
+                    })})
+                    .then(() => {
+                        setTimeout(() => {history.push('/')}, 3000)
+                    })
+                    .catch(err => {
+                        setLoading(false) 
+                        setError({msg: err.message})
+                    })
+        }else {
+            Auth.createUserWithEmailAndPassword(form.email, form.password)
+            .then(data => {
                 data.user.updateProfile({
-                    displayName: form.username,
-                    photoURL: imageUrl
-                })
-            })})
+                displayName: form.username
+            })
+            })
             .then(() => {
-                resetForm()
-                history.push('/')
+                setTimeout(() => {history.push('/')}, 2000)
             })
             .catch(err => {
                 setLoading(false) 
                 setError({msg: err.message})
             })
+        }
     }
+       
 
+            // google sign up
     const googleSignup = () => {
         Auth.signInWithPopup(Provider).then(() => {
             history.push('/')
@@ -99,6 +117,21 @@ const Signup = () => {
             <div className="signup__header">
                 <h2>Tada</h2> <span>a note app that keeps track.</span>
             </div>
+            
+             <div className= 'google__signup'>
+                 <Button 
+                 fluid
+                    content= 'Create account with Google'
+                    icon= 'google'
+                    iconPosition= 'left'
+                    color= 'google plus'
+                    onClick= {googleSignup}
+                 />
+             </div>
+             <Divider 
+                horizontal
+                content= 'OR'
+             />
             <Form onSubmit= {handleSubmit}>
                 <Form.Input
                     type= 'email'
@@ -168,20 +201,7 @@ const Signup = () => {
                      I forgot my  <span><Link to= '/account/password/reset'>Password</Link></span>
                 </span>
             </div>
-            <Divider 
-                horizontal
-                content= 'OR'
-             />
-             <div className= 'google__signup'>
-                 <Button 
-                 fluid
-                    content= 'Signup with Google'
-                    icon= 'google'
-                    iconPosition= 'left'
-                    color= 'google plus'
-                    onClick= {googleSignup}
-                 />
-             </div>
+           
         </div>
     )
 }

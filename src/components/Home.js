@@ -10,14 +10,32 @@ const Home = ({children}) => {
     const history = useHistory()
 
     const {user, note} = NoteState()
-    const [namePlaceholder, setNamePlaceholder] = useState('')
+    const [sample, setSample] = useState({username: '', image: null})
+
+    // update user info
+    const updateUser = () => {
+        if(user) {
+            if (user.displayName === null) {
+                    setSample({username: 'Pal', image: null})
+                }
+                if (user.photoURL === null && user.displayName) {
+
+                    const sampleImage = user ? user.displayName.split('').shift().toUpperCase() : 'User'
+
+                    setSample({username: user.displayName, image: sampleImage})
+                }
+            }
+        else {
+            history.push('/')
+        }
+            }
 
     useEffect(() => {
-        if(user) {
-            const placeholder = user.displayName.split('').shift().toUpperCase()
-            setNamePlaceholder(placeholder)
-        }
+        updateUser()
     }, [user])
+
+    //setTimeout(() => updateUser(), 2000)
+
 
     const [addnote, setAddnote] = useState({form: '', button: ''})
     const openNote = () => {
@@ -64,7 +82,6 @@ const Home = ({children}) => {
         doSearch()
     }, [form])
 
-
     return (
         <div className="home" onClick= {doCloseSearch}>
             <div className="home__header">
@@ -72,16 +89,20 @@ const Home = ({children}) => {
                 {user && user.photoURL ? 
                     <span className= 'home__picture'>
                         <img 
-                            src= {user.photoURL} 
-                        alt="Profile picture" accepts="image/*"/>
-                        <p>Welcome  {user ? user.displayName : 'user'}</p>
-                    </span> : 
-                        <span className= 'home__picture'>
+                            src= {user && user.photoURL}
+                            alt="Profile picture" 
+                            accepts="image/*"
+                        />
+                        <p>Welcome  {user && user.displayName}</p>
+                    </span>
+                    
+                    : 
+                    <span className= 'home__picture'>
                         <div  className= 'namePlaceholder'>
-                            <p>{namePlaceholder}</p>
+                            <p>{sample.image}</p>
                         </div> 
-                        <p>Welcome  {user ? user.displayName : 'user'}</p>
-                        </span>
+                        <p>Welcome  {user && sample.username}</p>
+                    </span> 
                     }
                     
                     <span className= 'home__modalButton'>

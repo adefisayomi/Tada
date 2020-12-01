@@ -3,15 +3,15 @@ import firebase from 'firebase'
 require('dotenv').config()
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAwkNUgUG4WuZJ4753Dt9Twf2Mnrd-3sCc",
-    authDomain: "tada-92154.firebaseapp.com",
-    databaseURL: "https://tada-92154.firebaseio.com",
-    projectId: "tada-92154",
-    storageBucket: "tada-92154.appspot.com",
-    messagingSenderId: "605080485367",
-    appId: "1:605080485367:web:1efe63a95fbe2d5c79c2f2",
-    measurementId: "G-YV661MNHH9"
-  };
+  apiKey: "AIzaSyAx2Cctuki1u428JBmdpHBZgL4mq9WUifE",
+  authDomain: "tada-advance-note.firebaseapp.com",
+  databaseURL: "https://tada-advance-note.firebaseio.com",
+  projectId: "tada-advance-note",
+  storageBucket: "tada-advance-note.appspot.com",
+  messagingSenderId: "496009385970",
+  appId: "1:496009385970:web:be1d683ab686b8733c3d6b",
+  measurementId: "G-TGZBTY9KJH"
+};
 
   firebase.initializeApp(firebaseConfig)
 
