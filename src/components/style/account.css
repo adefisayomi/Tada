@@ -1,0 +1,209 @@
+/* Login */
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.726);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 20px 20px;
+}
+.login__details {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-weight: bold;
+}
+.login__err {
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+}
+@media screen and (max-width: 650px) {
+    .login {
+        width: 96%;
+        padding: 30px 20px;
+        top: 10%;
+    }
+    .login__details{
+        flex-direction: column;
+        align-items: center;
+    }
+    .login__details span {
+        padding-bottom: 15px;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* Signup */
+.signup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.726);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 40px 20px;
+}
+.signup__details {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-weight: bold;
+}
+.signup__header {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 10px 0 0 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+}
+.signup__header h2 {
+    margin-right: 10px;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.signup__header span {
+    font-size: 12px;
+    color: rgb(6, 164, 236);
+}
+.google__signup{
+    margin: 0 auto;
+    width: 100%;
+}
+.signup__fileUpload{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+}
+.signup__fileUpload p {
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: -10px;
+    color: red;
+}
+.signup__fileUpload input {
+    display: none;
+}
+.signup__fileUpload label {
+    color: white;
+    cursor: pointer;
+}
+.signup__err {
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+}
+@media screen and (max-width: 650px) {
+    .signup {
+        width: 96%;
+        padding: 20px;
+        top: 5%;
+    }
+    .signup__details{
+        flex-direction: column;
+        align-items: center;
+    }
+    .signup__details span {
+        padding-bottom: 15px;
+    }
+    .google__signup{
+        width: 100%;
+    }
+    .signup__fileUpload{
+        display: flex;
+        flex-direction: column;
+    }
+    .signup__fileUpload p {
+        font-weight: bold;
+        padding-top: 10px;
+        margin-bottom: -10px;
+        color: red;
+    }
+    .signup__header {
+        margin-bottom: 20px;
+    }
+}
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* Reset password */
+.password {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.726);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 40px 20px;
+}
+
+.password__confirm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    font-weight: bold;
+}
+.password__confirm span {
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    outline: none;
+    color: rgb(3, 124, 180);
+    cursor: pointer;
+}
+.password__confirm p{
+    margin: 20px;
+}
+.password__err{
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+}
+@media screen and (max-width: 650px) {
+    .password {
+        width: 100%;
+        padding: 30px 15px;
+        border: none;
+    }
+    .password__confirm p{
+        margin: 20px;
+        font-size: 12px;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* Edit account */
+
+/* ------------------------------------------------------------------------------- */

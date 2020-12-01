@@ -1,0 +1,62 @@
+/* single note section----- */
+.singlenote{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+.singlenote:nth-child(1){
+    margin-top: 0;
+}
+.singlenote__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    text-transform: capitalize;
+    cursor: pointer;
+
+}
+.singlenote__version {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: white;
+    font-weight: bolb;
+    padding: 5px;
+    border-bottom: 1px solid rgb(184, 183, 183);
+}
+.singlenote__version span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 162, 255);
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+@media screen and (max-width: 650px){
+    
+}
+/* ----------------------------------------------- */
+
+/* edit note section */
+
+.editnote .home__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
